@@ -63,6 +63,8 @@ function onListening() {
   console.log('Servidor corriendo en http://localhost:' + port);
 }
 
+
+async function ApiCall() {
 const args = process.argv.slice(2);
 
 if (args.length > 0) {
@@ -83,3 +85,6 @@ if (args.length > 0) {
     console.log(data);
     process.exit(0);
 }
+}
+
+ApiCall();
