@@ -70,7 +70,7 @@ const args = process.argv.slice(2);
 if (args.length > 0) {
   const [metodo,ruta] = args;
     let bodyAEnviar = null;
-  if (metodo.toUpperCase() === 'POST' && ruta === 'products') {
+  if (metodo.toUpperCase() === 'POST' && ruta === 'products', args[2] && args[3] && args[4] != null) {
     bodyAEnviar = {
       title: args[2],           
       price: parseFloat(args[3]), 
@@ -79,6 +79,9 @@ if (args.length > 0) {
       image: 'https://i.pravatar.cc'
     };
   }
+  else
+    console.error('Para realizar un POST a products, debes proporcionar el título, precio y categoría del producto como argumentos adicionales.');  
+  
   console.log(`Llamando a la API con método: ${metodo}, ruta: ${ruta}, body: ${bodyAEnviar}`);
 
     const data = await callApi(metodo, ruta , bodyAEnviar);
